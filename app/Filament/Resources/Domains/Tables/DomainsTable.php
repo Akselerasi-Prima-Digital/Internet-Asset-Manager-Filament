@@ -9,12 +9,14 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class DomainsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->orderBy('status', 'asc'))
             ->columns([
                 TextColumn::make('name')
                     ->label('Domain Name')
@@ -77,6 +79,6 @@ class DomainsTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('status', direction: 'asc');
+            ->defaultSort('expiry_date', 'asc');
     }
 }

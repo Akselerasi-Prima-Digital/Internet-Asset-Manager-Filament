@@ -37,8 +37,8 @@ class VpsInfolist
                                     ->label('Renewal Cost')
                                     ->numeric()
                                     ->formatStateUsing(
-                                        fn($state) => $state !== null
-                                            ? 'Rp ' . number_format($state, 0, ',', '.')
+                                        fn ($state) => $state !== null
+                                            ? 'Rp '.number_format($state, 0, ',', '.')
                                             : '-'
                                     ),
                                 TextEntry::make('status')->label('Status'),
@@ -52,11 +52,8 @@ class VpsInfolist
                     ])->columnSpan(2),
                 Section::make()
                     ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('notes')->label('Notes')
-                                    ->markdown(),
-                            ]),
+                        TextEntry::make('notes')->label('Notes')
+                            ->markdown(),
                     ]),
             ])->columns(3);
     }

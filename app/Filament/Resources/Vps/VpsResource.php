@@ -25,6 +25,8 @@ class VpsResource extends Resource
 
     protected static ?string $navigationLabel = 'VPS';
 
+    protected static ?string $modelLabel = 'VPS';
+
     protected static string|UnitEnum|null $navigationGroup = 'Infrastructure';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedServer;
