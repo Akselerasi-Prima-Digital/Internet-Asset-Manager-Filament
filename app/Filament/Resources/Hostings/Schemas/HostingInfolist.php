@@ -4,8 +4,6 @@ namespace App\Filament\Resources\Hostings\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Support\Facades\Crypt;
 
 class HostingInfolist
 {
@@ -19,17 +17,9 @@ class HostingInfolist
                 TextEntry::make('username'),
                 TextEntry::make('password')
                     ->label('Password')
-                    ->formatStateUsing(function ($state) {
-                        if (! $state) {
-                            return '-';
-                        }
-
-                        try {
-                            return Crypt::decryptString($state);
-                        } catch (DecryptException $e) {
-                            return 'Invalid Encrypted Value';
-                        }
-                    }),
+                    ->copyable()
+                    ->copyMessage('Password copied')
+                    ->copyMessageDuration(1500),
                 TextEntry::make('provider.name')->label('Provider'),
                 TextEntry::make('purchase_date')
                     ->date(),
@@ -38,8 +28,8 @@ class HostingInfolist
                 TextEntry::make('renewal_cost')
                     ->numeric()
                     ->formatStateUsing(
-                        fn ($state) => $state !== null
-                            ? 'Rp '.number_format($state, 0, ',', '.')
+                        fn($state) => $state !== null
+                            ? 'Rp ' . number_format($state, 0, ',', '.')
                             : '-'
                     ),
                 TextEntry::make('status'),

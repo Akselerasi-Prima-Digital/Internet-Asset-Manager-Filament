@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('package_name');
             $table->string('server_ip')->nullable();
             $table->string('username')->nullable();
-            $table->string('password')->nullable();
+            $table->text('password')->nullable();
             $table->string('operating_system')->nullable();
             $table->foreignUuid('provider_id')->references('uuid')->on('providers')->onDelete('restrict');
             $table->date('purchase_date');

@@ -12,6 +12,7 @@ class ProviderForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Provider Name')
                     ->maxLength(255)
                     ->required(),
             ]);

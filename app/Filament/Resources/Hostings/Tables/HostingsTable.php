@@ -16,19 +16,27 @@ class HostingsTable
         return $table
             ->columns([
                 TextColumn::make('package_name')
+                    ->label('Package Name')
                     ->searchable(),
                 TextColumn::make('main_domain')
+                    ->label('Main Domain')
                     ->searchable(),
-                TextColumn::make('server_ip')->searchable(),
-                TextColumn::make('username')->searchable(),
+                TextColumn::make('server_ip')
+                    ->label('Server IP')
+                    ->searchable(),
+                TextColumn::make('username')
+                    ->label('Username')
+                    ->searchable(),
                 TextColumn::make('provider.name')
                     ->label('Provider')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('purchase_date')
+                    ->label('Purchase Date')
                     ->date('d-m-Y')
                     ->sortable(),
                 TextColumn::make('expiry_date')
+                    ->label('Expiry Date')
                     ->sortable()
                     ->formatStateUsing(function ($state) {
                         if (! $state) {
@@ -37,14 +45,17 @@ class HostingsTable
                         $expiry = \Carbon\Carbon::parse($state);
                         $days = now()->diffInDays($expiry, false); // hasil integer
 
-                        return $expiry->format('d-m-Y').' ('.(int) $days.' days)';
+                        return $expiry->format('d-m-Y') . ' (' . (int) $days . ' days)';
                     }),
                 TextColumn::make('renewal_cost')
+                    ->label('Renewal Cost')
                     ->numeric()
                     ->money('IDR', locale: 'id')
                     ->sortable(),
-                TextColumn::make('status')->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
                         'Active' => 'success',
                         'Inactive' => 'danger',
                         default => 'primary',

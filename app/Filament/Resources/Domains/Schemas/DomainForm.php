@@ -16,13 +16,16 @@ class DomainForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Domain Name')
                     ->required(),
                 Select::make('registrar_id')
                     ->relationship('registrar', 'name')
+                    ->label('Registrar')
                     ->preload()
                     ->searchable()
                     ->required(),
                 Select::make('hosting')
+                    ->label('Hosting')
                     ->options([
                         '-' => '-',
                         'Shared Hosting' => 'Shared hosting',
@@ -35,10 +38,13 @@ class DomainForm
                     ->default('-')
                     ->required(),
                 DatePicker::make('registration_date')
+                    ->label('Registration Date')
                     ->required(),
                 DatePicker::make('expiry_date')
+                    ->label('Expiry Date')
                     ->required(),
                 TextInput::make('renewal_cost')
+                    ->label('Renewal Cost')
                     ->required()
                     ->numeric()
                     ->prefix('Rp')
@@ -47,10 +53,12 @@ class DomainForm
                     ->mask(RawJs::make('$money($input)'))
                     ->stripCharacters(','),
                 Select::make('status')
+                    ->label('Status')
                     ->options(['Active' => 'Active', 'Inactive' => 'Inactive'])
                     ->default('Active')
                     ->required(),
                 Textarea::make('notes')
+                    ->label('Notes')
                     ->default(null)
                     ->columnSpanFull(),
             ]);

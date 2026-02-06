@@ -12,6 +12,7 @@ class RegistrarForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Registrar Name')
                     ->maxLength(255)
                     ->required(),
             ]);

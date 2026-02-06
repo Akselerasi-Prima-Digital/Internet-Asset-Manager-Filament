@@ -31,6 +31,10 @@ class Hosting extends Model
         'notes',
     ];
 
+    protected $casts = [
+        'password' => 'encrypted',
+    ];
+
     public function provider()
     {
         return $this->belongsTo(Provider::class, 'provider_id', 'uuid');

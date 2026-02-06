@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('main_domain');
             $table->string('server_ip')->nullable();
             $table->string('username')->nullable();
-            $table->string('password')->nullable();
+            $table->text('password')->nullable();
             $table->foreignUuid('provider_id')->references('uuid')->on('providers')->onDelete('restrict');
             $table->date('purchase_date');
             $table->date('expiry_date');

@@ -16,16 +16,20 @@ class DomainsTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Domain Name')
                     ->searchable(),
                 TextColumn::make('registrar.name')
                     ->label('Registrar')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('hosting'),
+                TextColumn::make('hosting')
+                    ->label('Hosting'),
                 TextColumn::make('registration_date')
+                    ->label('Registration Date')
                     ->date('d-m-Y')
                     ->sortable(),
                 TextColumn::make('expiry_date')
+                    ->label('Expiry Date')
                     ->sortable()
                     ->formatStateUsing(function ($state) {
                         if (! $state) {
@@ -37,10 +41,12 @@ class DomainsTable
                         return $expiry->format('d-m-Y').' ('.(int) $days.' days)';
                     }),
                 TextColumn::make('renewal_cost')
+                    ->label('Renewal Cost')
                     ->numeric()
                     ->money('IDR', locale: 'id')
                     ->sortable(),
                 TextColumn::make('status')
+                    ->label('Status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'Active' => 'success',

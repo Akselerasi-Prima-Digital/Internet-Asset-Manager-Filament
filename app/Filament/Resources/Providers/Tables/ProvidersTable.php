@@ -16,6 +16,7 @@ class ProvidersTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Provider Name')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

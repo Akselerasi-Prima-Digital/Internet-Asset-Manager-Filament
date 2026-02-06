@@ -16,6 +16,7 @@ class RegistrarsTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Registrar Name')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
