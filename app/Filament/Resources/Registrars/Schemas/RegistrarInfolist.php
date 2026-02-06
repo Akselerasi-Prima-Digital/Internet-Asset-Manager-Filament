@@ -17,10 +17,12 @@ class RegistrarInfolist
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                TextEntry::make('name'),
+                                TextEntry::make('name')->label('Registrar Name'),
                                 TextEntry::make('created_at')
+                                    ->label('Created At')
                                     ->dateTime(),
                                 TextEntry::make('updated_at')
+                                    ->label('Updated At')
                                     ->dateTime(),
                             ]),
                     ]),
