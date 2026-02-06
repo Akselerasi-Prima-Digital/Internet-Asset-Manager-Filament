@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vps', function (Blueprint $table) {
             $table->uuid()->primary()->unique();
             $table->string('package_name');
-            $table->string('server_ip')->nullable();
+            $table->string('server_ip');
             $table->string('username')->nullable();
             $table->text('password')->nullable();
             $table->string('operating_system')->nullable();

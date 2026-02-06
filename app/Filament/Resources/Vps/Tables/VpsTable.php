@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Vps\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -45,7 +46,7 @@ class VpsTable
                         $expiry = \Carbon\Carbon::parse($state);
                         $days = now()->diffInDays($expiry, false); // hasil integer
 
-                        return $expiry->format('d-m-Y') . ' (' . (int) $days . ' days)';
+                        return $expiry->format('d-m-Y').' ('.(int) $days.' days)';
                     }),
                 TextColumn::make('renewal_cost')
                     ->label('Renewal Cost')
@@ -55,7 +56,7 @@ class VpsTable
                 TextColumn::make('status')
                     ->label('Status')
                     ->badge()
-                    ->color(fn(string $state): string => match ($state) {
+                    ->color(fn (string $state): string => match ($state) {
                         'Active' => 'success',
                         'Inactive' => 'danger',
                         default => 'primary',
@@ -76,6 +77,7 @@ class VpsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

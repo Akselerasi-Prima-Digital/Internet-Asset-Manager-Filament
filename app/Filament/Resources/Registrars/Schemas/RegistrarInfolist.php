@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\Registrars\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class RegistrarInfolist
@@ -11,11 +13,17 @@ class RegistrarInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
-                TextEntry::make('created_at')
-                    ->dateTime(),
-                TextEntry::make('updated_at')
-                    ->dateTime(),
-            ]);
+                Section::make()
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextEntry::make('name'),
+                                TextEntry::make('created_at')
+                                    ->dateTime(),
+                                TextEntry::make('updated_at')
+                                    ->dateTime(),
+                            ]),
+                    ]),
+            ])->columns(1);
     }
 }

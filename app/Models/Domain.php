@@ -28,6 +28,10 @@ class Domain extends Model
         'notes',
     ];
 
+    protected $casts = [
+        'notes' => 'encrypted',
+    ];
+
     public function registrar()
     {
         return $this->belongsTo(Registrar::class, 'registrar_id', 'uuid');

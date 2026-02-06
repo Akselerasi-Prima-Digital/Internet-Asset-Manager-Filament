@@ -33,6 +33,7 @@ class Hosting extends Model
 
     protected $casts = [
         'password' => 'encrypted',
+        'notes' => 'encrypted',
     ];
 
     public function provider()

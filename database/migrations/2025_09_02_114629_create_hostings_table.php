@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid()->primary()->unique();
             $table->string('package_name');
             $table->string('main_domain');
-            $table->string('server_ip')->nullable();
+            $table->string('server_ip');
             $table->string('username')->nullable();
             $table->text('password')->nullable();
             $table->foreignUuid('provider_id')->references('uuid')->on('providers')->onDelete('restrict');
