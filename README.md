@@ -30,7 +30,7 @@ It helps you track service expiry dates, renewal costs, and monitor the overall 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/reynaldiarya/Internet-Asset-Manager-Filament.git
+   git clone https://github.com/Akselerasi-Prima-Digital/Internet-Asset-Manager-Filament.git
    cd Internet-Asset-Manager-Filament
    ```
 
