@@ -3,9 +3,9 @@
 A centralized management platform for tracking and organizing internet infrastructure assets including domains, hosting services, and virtual private servers.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0-blue" />
-  <img src="https://img.shields.io/badge/PHP-8.2-777BB4" />
-  <img src="https://img.shields.io/badge/Laravel-12-red" />
+  <img src="https://img.shields.io/badge/version-1.1.0-blue" />
+  <img src="https://img.shields.io/badge/PHP-8.3-777BB4" />
+  <img src="https://img.shields.io/badge/Laravel-13-red" />
   <a href="LICENSE">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-yellow" target="_blank" />
   </a>
@@ -31,18 +31,18 @@ Designed for agencies, freelancers, and organizations managing multiple client a
 
 ## Tech Stack
 
-- **Backend**: Laravel 12, PHP 8.2+
+- **Backend**: Laravel 13, PHP 8.3+
 - **Admin Panel**: Filament 5.0
 - **Database**: MariaDB (configurable to MySQL/PostgreSQL)
 - **Frontend**: Tailwind CSS 4, Vite 8
-- **Testing**: Pest PHP 4
+- **Testing**: Pest PHP 5
 - **Development Tools**: Laravel Sail, Laravel Pint, Laravel Pail
 
 ## Installation
 
 ### Prerequisites
 
-- PHP 8.2 or higher
+- PHP 8.3 or higher
 - Composer
 - MariaDB or MySQL
 - Node.js and npm

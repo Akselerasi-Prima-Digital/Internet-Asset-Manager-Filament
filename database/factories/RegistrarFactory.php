@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Registrar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Registrar>
+ * @extends Factory<Registrar>
  */
 class RegistrarFactory extends Factory
 {

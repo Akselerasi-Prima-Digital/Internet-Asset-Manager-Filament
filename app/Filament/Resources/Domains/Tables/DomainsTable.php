@@ -10,6 +10,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Date;
 
 class DomainsTable
 {
@@ -38,7 +39,8 @@ class DomainsTable
                         if (! $state) {
                             return '-';
                         }
-                        $expiry = \Carbon\Carbon::parse($state);
+
+                        $expiry = Date::parse($state);
                         $days = now()->diffInDays($expiry, false); // hasil integer
 
                         return $expiry->format('d-m-Y').' ('.(int) $days.' days)';

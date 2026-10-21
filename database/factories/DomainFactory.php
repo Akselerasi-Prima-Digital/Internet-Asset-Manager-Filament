@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Domain;
 use App\Models\Registrar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Domain>
+ * @extends Factory<Domain>
  */
 class DomainFactory extends Factory
 {
@@ -18,18 +19,18 @@ class DomainFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->domainName(),
+            'name' => fake()->domainName(),
             'registrar_id' => Registrar::factory(), // sesuaikan jika ada seeder registrars
-            'hosting' => $this->faker->randomElement([
+            'hosting' => fake()->randomElement([
                 '-', 'Shared Hosting', 'Cloud Hosting',
                 'WordPress Hosting', 'Unlimited Hosting',
                 'VPS', 'Dedicated Server',
             ]),
-            'registration_date' => $this->faker->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
-            'expiry_date' => $this->faker->dateTimeBetween('now', '+5 years')->format('Y-m-d'),
-            'renewal_cost' => $this->faker->randomFloat(2, 5, 100),
-            'status' => $this->faker->randomElement(['Active', 'Inactive']),
-            'notes' => $this->faker->optional()->sentence(),
+            'registration_date' => fake()->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
+            'expiry_date' => fake()->dateTimeBetween('now', '+5 years')->format('Y-m-d'),
+            'renewal_cost' => fake()->randomFloat(2, 5, 100),
+            'status' => fake()->randomElement(['Active', 'Inactive']),
+            'notes' => fake()->optional()->sentence(),
         ];
     }
 }

@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Provider;
+use App\Models\Vps;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Vps>
+ * @extends Factory<Vps>
  */
 class VpsFactory extends Factory
 {
@@ -18,13 +19,13 @@ class VpsFactory extends Factory
     public function definition(): array
     {
         return [
-            'package_name' => $this->faker->word().' VPS',
+            'package_name' => fake()->word().' VPS',
             'provider_id' => Provider::factory(), // sesuaikan jika ada seeder providers
-            'purchase_date' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),
-            'expiry_date' => $this->faker->dateTimeBetween('now', '+2 years')->format('Y-m-d'),
-            'renewal_cost' => $this->faker->randomFloat(2, 10, 500),
-            'status' => $this->faker->randomElement(['Active', 'Inactive']),
-            'notes' => $this->faker->optional()->sentence(),
+            'purchase_date' => fake()->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),
+            'expiry_date' => fake()->dateTimeBetween('now', '+2 years')->format('Y-m-d'),
+            'renewal_cost' => fake()->randomFloat(2, 10, 500),
+            'status' => fake()->randomElement(['Active', 'Inactive']),
+            'notes' => fake()->optional()->sentence(),
         ];
     }
 }
