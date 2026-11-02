@@ -14,7 +14,7 @@
     "require-dev": {
          "driftingly/rector-laravel": "^2.7.0",
         "fakerphp/faker": "^1.24.1",
-        "filament/upgrade": "5.10.3",
+        "filament/upgrade": "5.11.0",
         "larastan/larastan": "^3.13.0",
         "laravel/pail": "^1.2.7",
         "laravel/pint": "^1.32.1",
